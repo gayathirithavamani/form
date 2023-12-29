@@ -1,0 +1,21 @@
+.button1 {
+  font-size: 14px;
+  height: 32px;
+  padding: 4px 15px;
+  border-radius: 6px;
+  width: auto !important;
+}
+.color {
+  color: #000;
+  cursor: pointer;
+  margin-left: 20px;
+  border: 1px solid white;
+  border-radius: 20px;
+  height: 100%;
+  padding: 7px;
+  background-color: #fff;
+}
+.inputtype {
+  width: 173px !important;
+  height: 36px !important;
+}

@@ -1,38 +1,135 @@
+/* App */
 .App {
-  text-align: center;
+  background-color: #c98bb9;
+  height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Quikly Center Everything In Div */
+.cfb {
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+/* Container Styling */
+.Container {
+  width: 50%;
+  height: 60%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 1px 2px 2px #592941;
+  border: 0.1em solid #592941;
+  border-radius: 0.5em;
+
+  background-image: url("./shape.jpg");
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Banner Side of Container */
+.banner-side {
+  position: absolute;
+  z-index: 2;
+  right: 65%;
+
+  border: 0.1em solid #592941;
+  border-radius: 0.5em;
+
+  width: 35%;
+  height: 100%;
+
+  flex-direction: column;
+
+  background-color: #035e7b;
+  opacity: 1;
+
+  color: #eefcf8;
+  text-align: center;
+
+  transition: 2s;
+}
+
+/* Form Side of Container */
+.form-side {
+  position: absolute;
+  z-index: 1;
+  right: 0;
+
+  border: 0.1em solid #592941;
+  border-radius: 0.5em;
+
+  width: 65%;
+  height: 100%;
+
+  background-color: #eefcf8;
+  opacity: 1;
+
+  font-weight: bold;
+  color: #035e7b;
+
+  transition: 2s;
+}
+
+.send-right {
+  right: 0;
+}
+
+.send-left {
+  right: 35%;
+}
+
+/* Layout styling of forms, labels, inputs */
+.form-comp {
+  flex-direction: column;
+}
+
+.sign-up-form {
+  width: 70%;
+  flex-direction: column;
+}
+
+.sign-up-form > label {
+  padding: 0.5em;
+  width: 100%;
+}
+
+.sign-up-form > label > input {
+  width: 100%;
+}
+
+/* All Buttons Styling */
+button {
+  padding: 1em;
+
+  border: 1px solid #eefcf8;
+  border-radius: 5em;
+
+  background-color: #035e7b;
+
+  color: #eefcf8;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+button:focus {
+  outline: 0;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+/* All Inputs Styling */
+input {
+  padding: 0.5em;
+  border: 1px solid #035e7b;
+}
+
+.ant-form-item .ant-form-item-label > label::after {
+  content: "";
+  position: relative;
+  margin-block: 0;
+  margin-inline-start: 2px;
+  margin-inline-end: 8px;
 }
