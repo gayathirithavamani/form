@@ -4,6 +4,7 @@ import { Dropdown, Space } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
 import { Button, message, Upload } from "antd";
 import "./styles.css"
+import {FormSlice} from "../../slice/formSlice";
 import {
   BrowserRouter as Router,
   Routes,
@@ -12,10 +13,13 @@ import {
   Link,
 } from "react-router-dom";
 import Header from '../../components/header';
+import { useDispatch } from 'react-redux';
 
 
 const Home = () => {
-
+       const dispatch=useDispatch()
+        const token= localStorage.getItem("token")
+        console.log(token)
     const initialValues = {
       State: "",
       Status: "",
@@ -40,6 +44,7 @@ const Home = () => {
       const { name, value } = e.target;
 
       setFormValues({ ...formValues, [name]: value });
+      console.log("name",name, value ,formValues)
 
       setFormErrors({ ...formErrors, [name]: "" });
       // setFormErrors(validate(formValues));
@@ -50,24 +55,32 @@ const Home = () => {
     const handleSubmit = (e) => {
       e.preventDefault();
       setFormErrors(validate(formValues));
+      console.log("formvalue",formErrors)
       setIsSubmit(true);
-      const initialValues = {
-        State: "",
-        Status: "",
-        Facility: "",
-        Provider: "",
-        Medicare_Beneficiary_ID: "",
-        Resident_First_Name: "",
-        Resident_Last_Name: "",
-        Resident_Id: "",
-        Birth_Date: "",
-        Eligible_to_bill_Preventive_visit: "",
-        Eligible_to_bill: "",
-        Medicare_Eff_date: "",
-        CPT: "",
-        DX: "",
-      };
-      setFormValues(initialValues);
+      if(!(validate(formValues))){
+        dispatch  (FormSlice({formValues}));
+      }
+      else{
+        console.log("error")
+      }
+      
+      // const initialValues = {
+      //   State: "",
+      //   Status: "",
+      //   Facility: "",
+      //   Provider: "",
+      //   Medicare_Beneficiary_ID: "",
+      //   Resident_First_Name: "",
+      //   Resident_Last_Name: "",
+      //   Resident_Id: "",
+      //   Birth_Date: "",
+      //   Eligible_to_bill_Preventive_visit: "",
+      //   Eligible_to_bill: "",
+      //   Medicare_Eff_date: "",
+      //   CPT: "",
+      //   DX: "",
+      // };
+      // setFormValues(initialValues);
     };
 
     const validate = (values) => {
@@ -152,9 +165,7 @@ const Home = () => {
 
       return errors;
     };
-    console.log(formValues, "test1");
 
-    
   return (
     <div className="container">
       {/* header */}
